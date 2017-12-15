@@ -1,6 +1,6 @@
 #include "FishLayer.h"
 #include "Fish.h"
-//#include <ctime>
+#include <ctime>
 enum{
 	k_Direction_Left =0,
 	k_Direction_Right,

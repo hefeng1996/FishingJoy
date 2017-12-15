@@ -13,15 +13,15 @@ Cannon::~Cannon(void)
 
 Cannon* Cannon::create(CannonType type)
 {
-	Cannon* cannon = new Cannon();
-	if(cannon && cannon->init(type))
+	Cannon* _cannon = new Cannon();
+	if(_cannon && _cannon->init(type))
 	{
-		cannon->autorelease();
-		return cannon;
+		_cannon->autorelease();
+		return _cannon;
 	}
 	else
 	{
-		CC_SAFE_DELETE(cannon);
+		CC_SAFE_DELETE(_cannon);
 		return NULL;
 	}
 }

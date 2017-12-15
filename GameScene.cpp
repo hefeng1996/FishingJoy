@@ -1,5 +1,5 @@
 #include "GameScene.h"
-
+//#include "FishJoyData.h"
 GameScene::GameScene()
 {
 }
@@ -27,7 +27,11 @@ bool GameScene::init()
 		_touchLayer = TouchLayer::create();
 		CC_BREAK_IF(!_touchLayer);
 		this->addChild(_touchLayer);
-		scheduleUpdate();
+		_paneLayer = PanelLayer::create();
+		CC_BREAK_IF(!_paneLayer);
+		this->addChild(_paneLayer);
+		_paneLayer->getGoldCounter()->setNumber(FishJoyData::getInstance()->getGold());
+		this->scheduleUpdate();
 		return true;
 	} while (0);
 	return false;
@@ -85,7 +89,14 @@ void GameScene::cannonAimAt(CCPoint target)
 
 void GameScene::cannonShootTo(CCPoint target)
 {
-	_cannonLayer->shootTo(target);
+	int cost = _cannonLayer->getWeapon()->getCannonType() + 1;
+	if (FishJoyData::getInstance()->getGold() >= cost)
+	{
+		_cannonLayer->shootTo(target);
+		alterGold(-cost);
+	}
+
+	//_cannonLayer->shootTo(target);
 }
 
 bool GameScene::checkOutCollisionBetweenFishesAndBullet(Bullet* bullet)
@@ -153,4 +164,10 @@ void GameScene::checkOutCollisionBetweenFishesAndFishingNet(Bullet* bullet)
 			fishWillBeCaught(fish);
 		}
 	}
+}
+void GameScene::alterGold(int delta)
+{
+	FishJoyData* _fishJoyData = FishJoyData::getInstance();
+	_fishJoyData->alterGold(delta);
+	_paneLayer->getGoldCounter()->setNumber(_fishJoyData->getGold());
 }

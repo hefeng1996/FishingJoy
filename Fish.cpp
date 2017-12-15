@@ -88,11 +88,6 @@ void Fish::beCaught_CallFunc()
 	}
 }
 
-/*
-void Fish::removeFish(CCSprite *_fishSprite)
-{
-			this->removeFromParentAndCleanup(true);
-}*/
 void Fish::moveTo(CCPoint destination)
 {	
 	CCPoint point =getParent()->convertToWorldSpace(this->getPosition());
@@ -108,6 +103,7 @@ void Fish::moveEnd()
 {
 	if(isRunning())
 	{
+		this->stopActionByTag(k_Action_MoveTo);
 		getParent()->removeChild(this,false);
 	}
 }
