@@ -1,7 +1,6 @@
 #include "AppDelegate.h"
 #include "GameScene.h"
 #include "GameMenuLayer.h"
-
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -28,6 +27,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // create a scene. it's an autorelease object
     //CCScene *pScene = GameScene::create();
 	CCScene *pScene =GameMenuLayer::scene();
+	//CCScene *pScene=StartLayer::scene();
+
     // run
     pDirector->runWithScene(pScene);
 

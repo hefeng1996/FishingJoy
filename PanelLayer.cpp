@@ -22,7 +22,7 @@ bool PanelLayer::init()
 	addChild(_goldCounter);
 	_goldCounter->setPosition(ccp(600, 17));
 	
-	int maxTime =10;
+	int maxTime =3600;
 	ScheduleCountDown *countDown =ScheduleCountDown::create(this,maxTime,true);
 	addChild(countDown,0, 99);
 	_scheduleLabel=CCLabelAtlas::create(CCString::createWithFormat("%d",maxTime)->getCString(),"baoshiyu_shuzi_02-ipadhd.png",50,54,'0');

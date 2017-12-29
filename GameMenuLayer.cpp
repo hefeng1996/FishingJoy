@@ -40,7 +40,6 @@ void GameMenuLayer::createMenu(void)
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("UI_GameStartMenuLayer-ipadhd.plist");
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("UI_GameMenuText_cn-ipadhd.plist");
 	
-	//"��ʼ��Ϸ"��ť����
 	CCSprite* startNormalBgSprite = CCSprite::createWithSpriteFrameName("ui_button_box02_02.png");
 	CCSprite* startNormalTextSprite = CCSprite::createWithSpriteFrameName("ui_2p_010.png");
 
@@ -49,7 +48,6 @@ void GameMenuLayer::createMenu(void)
 	startNormalBgSprite->addChild(startNormalTextSprite);
 	startNormalTextSprite->setPosition(ccp(startNormalBgSize.width / 2, startNormalBgSize.height / 2 + 20));
 	
-	//"��ʼ��Ϸ"��ťѡ��
 	CCSprite* startSelectedBgSprite = CCSprite::createWithSpriteFrameName("ui_button_box02_01.png");
 	CCSprite* startSelectedTextSprite = CCSprite::createWithSpriteFrameName("ui_2p_010.png");
 
@@ -59,7 +57,6 @@ void GameMenuLayer::createMenu(void)
 	CCMenuItemSprite* startMenuItem = CCMenuItemSprite::create(startNormalBgSprite, 
 		startSelectedBgSprite, this, menu_selector(GameMenuLayer::menuCallbackStartGame));
 
-	//"ѡ�񳡾�"��ť����
 	CCSprite* sceneNormalBgSprite = CCSprite::createWithSpriteFrameName("ui_button_box01_02.png");
 	CCSprite* sceneNormalTextSprite = CCSprite::createWithSpriteFrameName("button_other_014.png");
 
@@ -68,7 +65,6 @@ void GameMenuLayer::createMenu(void)
 	sceneNormalBgSprite->addChild(sceneNormalTextSprite);
 	sceneNormalTextSprite->setPosition(ccp(sceneNormalBgSize.width / 2, sceneNormalBgSize.height / 2 + 3));
 
-	//"ѡ�񳡾�"��ťѡ��
 	CCSprite* sceneSelectedBgSprite = CCSprite::createWithSpriteFrameName("ui_button_box01_01.png");
 	CCSprite* sceneSelectedTextSprite = CCSprite::createWithSpriteFrameName("button_other_014.png");
 

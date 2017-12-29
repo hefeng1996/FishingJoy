@@ -1,4 +1,4 @@
-#include "GameScene.h"
+﻿#include "GameScene.h"
 //#include "FishJoyData.h"
 GameScene::GameScene()
 {
@@ -141,8 +141,8 @@ void GameScene::update(float delta)
 
 void GameScene::fishWillBeCaught(Fish* fish)
 {
-	float weaponPercents[k_Cannon_Count] = { 0.3, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1 };
-	float fishPercents[	k_Fish_Type_Count] = { 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4 };
+	float weaponPercents[k_Cannon_Count] = { 0.3f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f, 1.1f };
+	float fishPercents[	k_Fish_Type_Count] = { 1.0f, 0.95f,0.9f,0.85f,0.8f,0.75f, 0.7f,0.65f, 0.6f,0.55f, 0.5f,0.45f, 0.4f,0.35f,0.3f,0.25f,0.2f,0.15f };
 	int _cannonType = _cannonLayer->getWeapon()->getCannonType();
 	int _fishType = fish->getType();
 	float percentage =(float)_cannonType * _fishType;
@@ -181,5 +181,5 @@ void GameScene::alterGold(int delta)
 void GameScene::onEnter()
 {
 	CCScene::onEnter();
-	PersonalAudioEngine::getInstance()->playBackgroundMusic(3);
+	PersonalAudioEngine::getInstance()->playBackgroundMusic(1);
 }
